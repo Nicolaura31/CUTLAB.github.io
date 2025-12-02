@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUTLAB - Профессиональный видеомонтаж</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🎬</span>
+                    CUTLAB
+                </div>
+                
+                <!-- Мобильное меню -->
+                <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="#" class="nav-link" data-tab="home">Главная</a></li>
+                        <li><a href="#" class="nav-link" data-tab="courses">Курсы</a></li>
+                        <li><a href="#" class="nav-link" data-tab="prices">Цены</a></li>
+                        <li><a href="#" class="nav-link" data-tab="about">О нас</a></li>
+                        <li><a href="#" class="nav-link" data-tab="contact">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="theme-toggle">
+                        <button class="theme-btn" id="theme-toggle-btn">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                    <a href="#" class="btn btn-small" id="header-contact-btn">Записаться</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Герой секция -->
+    <section class="hero">
+        <div class="container">
+            <h1>Курсы видеомонтажа для детей</h1>
+            <p>Помогите вашему ребенку раскрыть творческий потенциал и освоить навыки будущего в увлекательной форме</p>
+            <a href="#" class="btn btn-contact" id="hero-contact-btn">Записаться на пробный урок</a>
+        </div>
+    </section>
+
+    <!-- Интерфейс CUTLAB -->
+    <div class="container">
+        <div class="cutlab-interface" id="cutlab-interface">
+            <div class="cutlab-header">
+                <div class="cutlab-title">CUTLAB - Демонстрационный проект</div>
+                <div class="cutlab-controls">
+                    <div class="cutlab-control control-minimize" id="minimize-btn">
+                        <i class="fas fa-eye-slash"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="cutlab-body">
+                <div class="cutlab-sidebar">
+                    <div class="cutlab-tools">
+                        <div class="cutlab-tool active" data-tool="media">
+                            <i class="fas fa-film"></i>
+                            <span>Медиа</span>
+                        </div>
+                        <div class="cutlab-tool" data-tool="audio">
+                            <i class="fas fa-music"></i>
+                            <span>Аудио</span>
+                        </div>
+                        <div class="cutlab-tool" data-tool="effects">
+                            <i class="fas fa-magic"></i>
+                            <span>Эффекты</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Аудио панель -->
+                    <div class="audio-panel">
+                        <div class="audio-control-group">
+                            <label for="master-volume">Главная громкость</label>
+                            <input type="range" id="master-volume" class="audio-slider" min="0" max="1" step="0.1" value="1">
+                        </div>
+                    </div>
+                    
+                    <!-- Панель эффектов -->
+                    <div class="effects-panel">
+                        <div class="effect-item" data-effect="fade">
+                            <i class="fas fa-film"></i>
+                            <span>Затухание</span>
+                        </div>
+                        <div class="effect-item" data-effect="blackwhite">
+                            <i class="fas fa-moon"></i>
+                            <span>Черно-белое</span>
+                        </div>
+                        <div class="effect-item" data-effect="sepia">
+                            <i class="fas fa-feather"></i>
+                            <span>Сепия</span>
+                        </div>
+                        <div class="effect-item" data-effect="vintage">
+                            <i class="fas fa-camera-retro"></i>
+                            <span>Винтаж</span>
+                        </div>
+                        <div class="effect-item" data-effect="reset">
+                            <i class="fas fa-times"></i>
+                            <span>Сбросить эффекты</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Панель управления скоростью -->
+                    <div class="speed-control">
+                        <span>Скорость:</span>
+                        <div class="speed-buttons">
+                            <button class="speed-btn" data-speed="0.5">0.5x</button>
+                            <button class="speed-btn active" data-speed="1">1x</button>
+                            <button class="speed-btn" data-speed="1.5">1.5x</button>
+                            <button class="speed-btn" data-speed="2">2x</button>
+                        </div>
+                    </div>
+
+                    <!-- Кнопка экспорта -->
+                    <button class="export-btn" id="export-btn">Экспортировать проект</button>
+                </div>
+                <div class="cutlab-main">
+                    <div class="cutlab-preview">
+                        <div class="video-container">
+                            <video id="demo-video" preload="metadata">
+                                Ваш браузер не поддерживает видео тег.
+                            </video>
+                            <div class="play-button" id="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-controls">
+                                <button class="btn-control" id="play-pause-btn">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <button class="btn-control" id="volume-btn">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                                <div class="volume-control" id="volume-control">
+                                    <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1">
+                                </div>
+                                <div class="video-progress" id="video-progress">
+                                    <div class="video-progress-filled" id="video-progress-filled"></div>
+                                </div>
+                                <div class="video-time" id="video-time">0:00 / 0:00</div>
+                                <button class="btn-control" id="fullscreen-btn">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                            <!-- Водяной знак для предпросмотра -->
+                            <div class="watermark">CUTLAB</div>
+                        </div>
+                    </div>
+                    <div class="video-switcher-panel">
+                        <h4>Выберите видео для монтажа:</h4>
+                        <div class="video-options">
+                            <div class="video-option active" data-video="video1">
+                                <span>Крутой видос</span>
+                            </div>
+                            <div class="video-option" data-video="video2">
+                                <span>Город</span>
+                            </div>
+                            <div class="video-option" data-video="video3">
+                                <span>Эдит</span>
+                            </div>
+                            <div class="video-option" data-video="video4">
+                                <span>Меха</span>
+                            </div>
+                            <div class="video-option" data-video="video5">
+                                <span>Космос</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cutlab-timeline">
+                        <div class="timeline-track" id="video-track">
+                            <div class="timeline-indicator" id="timeline-indicator"></div>
+                            <div class="timeline-clip video-clip-1" draggable="true" id="clip1">Видео 1</div>
+                            <div class="timeline-clip video-clip-2" draggable="true" id="clip2">Видео 2</div>
+                        </div>
+                        <div class="timeline-track" id="audio-track">
+                            <div class="timeline-clip audio-clip-1" draggable="true" id="clip3">Музыка</div>
+                            <div class="timeline-clip audio-clip-2" draggable="true" id="clip4">Эффекты</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="container">
+        <div class="tabs-container">
+            <div class="tabs">
+                <div class="tab active" data-tab="home">Главная</div>
+                <div class="tab" data-tab="courses">Курсы</div>
+                <div class="tab" data-tab="prices">Цены</div>
+                <div class="tab" data-tab="about">О нас</div>
+                <div class="tab" data-tab="contact">Контакты</div>
+            </div>
+            
+            <!-- Вкладка Главная -->
+            <div class="tab-content active" id="home-content">
+                <h2 class="section-title">Добро пожаловать в CUTLAB!</h2>
+                <p class="section-text">CUTLAB - это инновационная платформа для обучения детей видеомонтажу в увлекательной и понятной форме. Наши курсы разработаны специально для детей от 8 до 16 лет и помогают развивать творческие способности, технические навыки и креативное мышление.</p>
+                
+                <!-- Статистика -->
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-text">Профессиональных преподавателя</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-text">Лет опыта работы с детьми</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">~60 мин</div>
+                        <div class="stat-text">Длительность одного урока</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">12</div>
+                        <div class="stat-text">Уроков в курсе (2 теории)</div>
+                    </div>
+                </div>
+                
+                <h3 class="section-title">Наши преимущества</h3>
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <h4 class="course-title">Интерактивное обучение</h4>
+                        <p>Уроки построены в формате игры с практическими заданиями и мгновенной обратной связью.</p>
+                    </div>
+                    <div class="course-card">
+                        <h4 class="course-title">Профессиональные преподаватели</h4>
+                        <p>Наши педагоги имеют опыт работы с детьми и являются практикующими видеомонтажерами.</p>
+                    </div>
+                    <div class="course-card">
+                        <h4 class="course-title">Современные технологии</h4>
+                        <p>Используем актуальные программы для монтажа, адаптированные для детского восприятия.</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3 class="section-title">Свяжитесь с нами</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+7 (999) 123-45-67</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@cutlab.ru</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>г. Слободской, ул. Никольская 8</span>
+                    </div>
+                </div>
+                
+                <div class="reviews-section" id="reviews">
+                    <h3 class="section-title">Отзывы родителей</h3>
+                    <div class="reviews-container">
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="review-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="review-author">
+                                    <h4>Марина Иванова</h4>
+                                    <span>мама Сережи, 12 лет</span>
+                                </div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <p>Сережа всегда был увлечен видео, но только здесь он научился создавать настоящие шедевры! Преподаватели нашли подход даже к моему скромному мальчику. Теперь он сам монтирует семейные видео и даже помогает с роликами для школьных проектов.</p>
+                            </div>
+                            <div class="review-date">15 января 2024</div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="review-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="review-author">
+                                    <h4>Анна Петрова</h4>
+                                    <span>мама Кати, 14 лет</span>
+                                </div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <p>Катя прошла курс "Создание YouTube-канала" и теперь ведет свой блог о рисовании. Преподаватели не только научили техническим навыкам, но и помогли развить творческое мышление. Очень благодарна школе за профессиональный подход!</p>
+                            </div>
+                            <div class="review-date">8 января 2024</div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="review-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="review-author">
+                                    <h4>Дмитрий Соколов</h4>
+                                    <span>папа близнецов, 10 лет</span>
+                                </div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <p>Отдали обоих детей на курс, и они в восторге! Преподаватели умеют заинтересовать и объяснить сложные вещи простым языком. Дети теперь проводят время за компьютером с пользой, создавая собственные проекты.</p>
+                            </div>
+                            <div class="review-date">3 января 2024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Вкладка Курсы -->
+            <div class="tab-content" id="courses-content">
+                <h2 class="section-title">Наши курсы</h2>
+                <p class="section-text">Мы предлагаем разнообразные курсы по видеомонтажу, адаптированные для разных возрастных групп и уровней подготовки. Все курсы состоят из 12 уроков, 2 из которых - теоретические.</p>
+                
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <div class="free-lesson-badge">
+                            <div class="ribbon-text">ПЕРВЫЙ УРОК БЕСПЛАТНО</div>
+                        </div>
+                        <h4 class="course-title">Основы видеомонтажа</h4>
+                        <p>Для начинающих: знакомство с интерфейсом, базовые инструменты и создание первого видео.</p>
+                        <ul class="course-features">
+                            <li>12 уроков (2 теории)</li>
+                            <li>10 практических заданий</li>
+                            <li>Сертификат по окончании</li>
+                            <li>Длительность урока: ~60 минут</li>
+                        </ul>
+                        <div class="course-price">2 900 ₽</div>
+                        <a href="#" class="btn btn-block">Записаться</a>
+                    </div>
+                    
+                    <div class="course-card featured">
+                        <div class="popular-badge">
+                            <div class="ribbon-text">ПОПУЛЯРНОЕ</div>
+                        </div>
+                        <h4 class="course-title">Продвинутый монтаж</h4>
+                        <p>Для продолжающих: работа с эффектами, цветокоррекция и создание сложных проектов.</p>
+                        <ul class="course-features">
+                            <li>12 уроков (2 теории)</li>
+                            <li>Индивидуальная обратная связь</li>
+                            <li>Доступ к премиум-эффектам</li>
+                            <li>Длительность урока: ~60 минут</li>
+                        </ul>
+                        <div class="course-price">4 900 ₽</div>
+                        <a href="#" class="btn btn-block">Записаться</a>
+                    </div>
+                    
+                    <div class="course-card">
+                        <div class="free-lesson-badge">
+                            <div class="ribbon-text">ПЕРВЫЙ УРОК БЕСПЛАТНО</div>
+                        </div>
+                        <h4 class="course-title">Создание YouTube-канала</h4>
+                        <p>Полный цикл: от идеи до публикации, включая оформление канала и продвижение.</p>
+                        <ul class="course-features">
+                            <li>12 уроков (2 теории)</li>
+                            <li>Разбор реальных кейсов</li>
+                            <li>Консультация по продвижению</li>
+                            <li>Длительность урока: ~60 минут</li>
+                        </ul>
+                        <div class="course-price">3 500 ₽</div>
+                        <a href="#" class="btn btn-block">Записаться</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Вкладка Цены -->
+            <div class="tab-content" id="prices-content">
+                <h2 class="section-title">Наши цены</h2>
+                <p class="section-text">Мы предлагаем гибкую систему оплаты и различные пакеты обучения, чтобы каждый мог найти подходящий вариант. Все курсы включают 12 уроков (2 теоретических) с длительностью каждого около 60 минут.</p>
+                
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <h4 class="course-title">Базовый</h4>
+                        <p>Идеально для знакомства с видеомонтажом</p>
+                        <ul class="course-features">
+                            <li>Доступ к базовым урокам</li>
+                            <li>Проверка заданий</li>
+                            <li>Сертификат</li>
+                            <li>Поддержка по email</li>
+                        </ul>
+                        <div class="course-price">2 900 ₽</div>
+                        <a href="#" class="btn btn-block">Выбрать</a>
+                    </div>
+                    
+                    <div class="course-card featured">
+                        <div class="popular-badge">
+                            <div class="ribbon-text">ПОПУЛЯРНОЕ</div>
+                        </div>
+                        <h4 class="course-title">Профессиональный</h4>
+                        <p>Для серьезного погружения в видеомонтаж</p>
+                        <ul class="course-features">
+                            <li>Все уроки платформы</li>
+                            <li>Индивидуальная обратная связь</li>
+                            <li>Премиум-эффекты и шаблоны</li>
+                            <li>Приоритетная поддержка</li>
+                        </ul>
+                        <div class="course-price">6 900 ₽</div>
+                        <a href="#" class="btn btn-block">Выбрать</a>
+                    </div>
+                    
+                    <div class="course-card">
+                        <h4 class="course-title">Групповой</h4>
+                        <p>Для школ и образовательных центров</p>
+                        <ul class="course-features">
+                            <li>До 10 учеников</li>
+                            <li>Специальная программа</li>
+                            <li>Отчеты об успеваемости</li>
+                            <li>Техническая поддержка</li>
+                        </ul>
+                        <div class="course-price">15 000 ₽</div>
+                        <a href="#" class="btn btn-block">Выбрать</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Вкладка О нас -->
+            <div class="tab-content" id="about-content">
+                <h2 class="section-title">О нас</h2>
+                <p class="section-text">CUTLAB была основана в 2020 году группой энтузиастов, которые верят, что современные дети должны иметь доступ к качественному образованию в области цифрового творчества.</p>
+                
+                <h3 class="section-title">Наша миссия</h3>
+                <p class="section-text">Мы стремимся развивать творческий потенциал детей через освоение современных технологий, помогая им не только потреблять, но и создавать цифровой контент.</p>
+                
+                <h3 class="section-title">Наша команда</h3>
+                <div class="teachers-grid">
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4 class="teacher-name">Девятьяров Станислав</h4>
+                        <div class="teacher-specialization">Основатель и методист</div>
+                        <div class="teacher-experience">Опыт работы с детьми: 1 год</div>
+                        <p>Специалист в области видеомонтажа и разработки программ на Unity.</p>
+                    </div>
+                    
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4 class="teacher-name">Рожкин Александр</h4>
+                        <div class="teacher-specialization">Главный преподаватель</div>
+                        <div class="teacher-experience">Опыт в видеомонтаже: 5 лет</div>
+                        <p>Профессиональный видеомонтажер с опытом работы в киноиндустрии.</p>
+                    </div>
+                    
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4 class="teacher-name">Падерин Николай</h4>
+                        <div class="teacher-specialization">Гуру видеомонтажа</div>
+                        <div class="teacher-experience">Опыт работы: 10 лет</div>
+                        <p>Специализируется на адаптации сложного материала для детского восприятия.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Вкладка Контакты -->
+            <div class="tab-content" id="contact-content">
+                <h2 class="section-title">Свяжитесь с нами</h2>
+                <p class="section-text">Мы всегда рады ответить на ваши вопросы и помочь с выбором подходящего курса для вашего ребенка.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+7 (999) 123-45-67</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@cutlab.ru</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>г. Слободской, ул. Никольская</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Пн-Пт: 9:00-18:00, Сб: 10:00-16:00</span>
+                    </div>
+                </div>
+                
+                <h3 class="section-title">Оставьте заявку</h3>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" class="form-control" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CUTLAB</h3>
+                    <p>Курсы видеомонтажа для детей. Развиваем творческие способности и технические навыки в увлекательной форме.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Навигация</h3>
+                    <ul>
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#">Курсы</a></li>
+                        <li><a href="#">Цены</a></li>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +7 (999) 123-45-67</li>
+                        <li><i class="fas fa-envelope"></i> info@cutlab.ru</li>
+                        <li><i class="fas fa-map-marker-alt"></i> г. Слободской, ул. Никольская 8</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Социальные сети</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-vk"></i> ВКонтакте</a></li>
+                        <li><a href="#"><i class="fab fa-telegram"></i> Telegram</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 CUTLAB. Все права защищены.
+            </div>
+        </div>
+		
+    </footer>
+
+    <!-- Секретная кнопка с котиком -->
+    <div class="secret-cat-btn" id="secret-cat-btn">
+        <i class="fas fa-cat"></i>
+    </div>
+
+    <!-- Секретное модальное окно -->
+    <div class="secret-modal" id="secret-modal">
+        <div class="secret-modal-content">
+            <div class="secret-modal-header">
+                <h3>Секретное видео! 🐱</h3>
+                <button class="secret-close-btn" id="secret-close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="secret-video-container">
+                <video id="secret-video" loop playsinline>
+                    <source src="video/secret.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео тег.
+                </video>
+            </div>
+            <p class="secret-message">Максвелл (англ. Maxwell the Cat, настоящее имя ― Джесс, англ. Jess) ― интернет-мем с домашней кошкой по кличке Джесс, ставшей популярной в Интернете после того, как её хозяин под ником Voidhawk42 выложил фотографию Джесс на сайте Imgur в 2017 году. Кошку приобрела супруга Voidhawk, чтобы справиться с психическими проблемами. В начале 2020 года Джесс скончалась из-за злокачественной опухоли. В 2022 году появилась трёхмерная модель питомца, которая получила имя Максвелл. Её начали добавлять в различные компьютерные игры, и с ней создавались видео, на которых Максвелл крутился под музыку. Хозяева Джесс, узнав о том, что она стала популярным мемом, посчитали сохранение памяти о ней таким способом очаровательным</p>
+        </div>
+    </div>
+
+    <!-- Канвас для обработки видео -->
+    <canvas id="video-canvas" style="display: none;"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
